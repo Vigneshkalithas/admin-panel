@@ -6,16 +6,21 @@
 .container{
   
  display: flex;
+min-height: 100vh; 
 }
-/* main{
-  width:100%;
+main{
+  /* width:100%; */
   padding: 20px;
-} */
+}
+.all-lists{
+  height: 100vh;
+}
 .sidebar{
-  background-color:skyblue;
+  background-color:#385ece;
   width: 250px;
-  color: black;
-  height:100vh;
+  color: white;
+  min-height:100vh;
+  /* height: 100%; */
   
 }
 .top_section{
@@ -23,8 +28,8 @@
   align-items: center;
   padding: 20px 15px;
 }
-.logo{
-  font-size:25px;
+.text-logo{
+  font-size:22px;
 }
 .bars{
   display: block;
@@ -34,12 +39,12 @@
 .link{
   display:flex;
   color:white;
-  padding:10px 15px;
+  padding:15px 15px;
   gap:15px;
   transition: all 0.5s;
 }
 .link:hover{
-  /* border-left: 4px solid yellow; */
+  /* border-left: 5px solid yellow; */
   background: yellow;
   color:#000;
   transition: all 0.5s;
@@ -48,3 +53,65 @@
   background-color:yellow;
   color: black;
 }
+.butt:hover{
+  border-left: 4px solid yellow;
+}
+
+.innerButton{
+  background-color: whitesmoke;
+  color:#000;
+  transition: all 0.5s;
+  /* border:1px solid black; */
+  border-radius: 5px;
+  padding: 30px;
+  width:200px;
+  height: auto;
+  
+ 
+}
+
+.parn{
+  display: flex;
+  justify-self: end;
+  align-items: flex-end;
+}
+
+
+
+/* New */
+
+
+
+.logo{
+  display: flex;
+  flex-direction: row;
+  color: whitesmoke;
+  gap: 14px;
+
+}
+.emoji-icon{
+
+  font-size: 35px;
+}
+.menus{
+  margin-bottom: 10px;
+}
+.menus,.menu-icons{
+  color: white;
+}
+.list-buttons{
+  margin-bottom: 14px;
+  margin-top: 14px;
+}
+.menu-texts{
+  color: #000;
+}
+.list-buttons:hover{
+  border-left:5px solid  yellow;
+}
+.list-buttons:active{
+  background: yellow;
+  color: #000;
+}
+
+
