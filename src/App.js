@@ -6,7 +6,8 @@ import {
   Route,
   Link,
   Routes,
-  Navigate,
+  // Navigate,
+  useNavigate,
 } from "react-router-dom";
 import { FaTable } from "react-icons/fa";
 import { GoThreeBars } from "react-icons/go";
@@ -24,7 +25,7 @@ import { BsFillEmojiWinkFill } from "react-icons/bs";
 
 // new
 import { NavLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { AiOutlineDashboard } from "react-icons/ai";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoBuildOutline } from "react-icons/io5";
@@ -39,33 +40,45 @@ import ListItemText from "@mui/material/ListItemText";
 import Collapse from "@mui/material/Collapse";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import { borderRadius, fontSize, letterSpacing, textAlign } from "@mui/system";
-import { fontGrid } from "@mui/material/styles/cssUtils";
+import PrimarySearchAppBar from "./PrimarySearchAppBar";
+import { Dashboard } from "./Dashboard";
+import { Charts } from "./Charts";
+import { Buttons } from "./Buttons";
+
 
 // end
+
 
 function App() {
   return (
     <div className="App">
-     
-        <SideBarNew>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/components" element={<Components />} />
-            <Route path="/utilities" element={<Utilities />} />
-            <Route path="/pages" element={<Pages />} />
-            <Route path="/charts" element={<Charts />} />
-            <Route path="/tables" element={<Tables />} />
-          </Routes>
-        </SideBarNew>
-       
-      
-      
+      <div className="App-child">
+        <div><SideBarNew/></div>
+
+        <div className="top-nav">
+          <div>
+          <PrimarySearchAppBar/>
+          </div>
+          <div>
+<Routes>
+<Route path="/" element={<Dashboard />} />
+<Route path="/dashboard" element={<Dashboard />} />
+<Route path="/components" element={<Components />} />
+<Route path='/buttons' element={<Buttons />} />
+<Route path="/utilities" element={<Utilities />} />
+<Route path="/pages" element={<Pages />} />
+<Route path="/charts" element={<Charts />} />
+<Route path="/tables" element={<Tables />} />
+</Routes>
+          </div>
+        </div>
+      </div>
     </div>
+        
   );
 }
 
-function SideBarNew( { children } ) {
+function SideBarNew() {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [openComponent, setOpenComponent] = useState(false);
@@ -84,7 +97,7 @@ function SideBarNew( { children } ) {
 
   return (
     <>
-      <div className="container">
+      <div className="con">
         <div className="sidebar">
           <div className="top_section">
             <div className="logo">
@@ -97,24 +110,23 @@ function SideBarNew( { children } ) {
             </div>
           </div>
           <div className="menus">
-
             <List activeClassName="active">
               <div className="list-buttons">
-              <ListItemButton onClick={() => navigate("/")} >
-                <ListItemIcon >
-                  <AiOutlineDashboard className="menu-icons"/>
-                </ListItemIcon>
-                <ListItemText primary="Dashboard" />
-              </ListItemButton>
+                <ListItemButton onClick={() => navigate("/dashboard")}>
+                  <ListItemIcon>
+                    <AiOutlineDashboard className="menu-icons" />
+                  </ListItemIcon>
+                  <ListItemText primary="Dashboard" />
+                </ListItemButton>
               </div>
-             <div className="list-buttons">
-              <ListItemButton onClick={handleClickComponent} >
-                <ListItemIcon>
-                  <IoSettingsOutline className="menu-icons"/>
-                </ListItemIcon>
-                <ListItemText primary="Components" />
-                {openComponent ? <ExpandMore /> : <ChevronRightIcon />}
-              </ListItemButton>
+              <div className="list-buttons">
+                <ListItemButton onClick={handleClickComponent}>
+                  <ListItemIcon>
+                    <IoSettingsOutline className="menu-icons" />
+                  </ListItemIcon>
+                  <ListItemText primary="Components" />
+                  {openComponent ? <ExpandMore /> : <ChevronRightIcon />}
+                </ListItemButton>
               </div>
 
               <Collapse
@@ -138,29 +150,33 @@ function SideBarNew( { children } ) {
                     <ListSubheader
                       component="div"
                       id="nested-list-subheader"
-                      sx={{ bgcolor: "whitesmoke",fontSize:"12.5px",letterSpacing:"0.5px"}}
+                      sx={{
+                        bgcolor: "whitesmoke",
+                        fontSize: "12.5px",
+                        letterSpacing: "0.5px",
+                      }}
                     >
                       CUSTOM COMPONENTS:
                     </ListSubheader>
                   }
                 >
-                  <ListItemButton sx={{ pl: 7,color:"black"}} >
+                  <ListItemButton sx={{ pl: 7, color: "black" }} onClick={() => navigate("/buttons")}>
                     <ListItemText primary="Buttons" />
                   </ListItemButton>
-                  <ListItemButton sx={{ pl: 7,color:"black"}}>
+                  <ListItemButton sx={{ pl: 7, color: "black" }}>
                     <ListItemText primary="Cards" />
                   </ListItemButton>
                 </List>
               </Collapse>
-              
+
               <div className="list-buttons">
-               <ListItemButton onClick={handleClick}>
-                <ListItemIcon>
-                  <IoBuildOutline className="menu-icons" />
-                </ListItemIcon>
-                <ListItemText primary="Utilities" />
-                {open ? <ExpandMore /> : <ChevronRightIcon />}
-              </ListItemButton>
+                <ListItemButton onClick={handleClick}>
+                  <ListItemIcon>
+                    <IoBuildOutline className="menu-icons" />
+                  </ListItemIcon>
+                  <ListItemText primary="Utilities" />
+                  {open ? <ExpandMore /> : <ChevronRightIcon />}
+                </ListItemButton>
               </div>
 
               <Collapse
@@ -184,35 +200,39 @@ function SideBarNew( { children } ) {
                     <ListSubheader
                       component="div"
                       id="nested-list-subheader"
-                      sx={{ bgcolor: "whitesmoke",fontSize:"12.5px",letterSpacing:"0.5px"}}
+                      sx={{
+                        bgcolor: "whitesmoke",
+                        fontSize: "12.5px",
+                        letterSpacing: "0.5px",
+                      }}
                     >
                       CUSTOM UTILITIES:
                     </ListSubheader>
                   }
                 >
-                  <ListItemButton sx={{ pl: 7,color:"black" }}>
+                  <ListItemButton sx={{ pl: 7, color: "black" }}>
                     <ListItemText primary="Colors" />
                   </ListItemButton>
-                  <ListItemButton sx={{ pl: 7,color:"black" }}>
+                  <ListItemButton sx={{ pl: 7, color: "black" }}>
                     <ListItemText primary="Borders" />
                   </ListItemButton>
-                  <ListItemButton sx={{ pl: 7,color:"black" }}>
+                  <ListItemButton sx={{ pl: 7, color: "black" }}>
                     <ListItemText primary="Animations" />
                   </ListItemButton>
-                  <ListItemButton sx={{ pl: 7,color:"black" }}>
+                  <ListItemButton sx={{ pl: 7, color: "black" }}>
                     <ListItemText primary="Others" />
                   </ListItemButton>
                 </List>
               </Collapse>
 
               <div className="list-buttons">
-              <ListItemButton onClick={handleClickPages}>
-                <ListItemIcon>
-                  <AiOutlineFolder className="menu-icons"/>
-                </ListItemIcon>
-                <ListItemText primary="Pages" />
-                {openPages ? <ExpandMore /> : <ChevronRightIcon />}
-              </ListItemButton>
+                <ListItemButton onClick={handleClickPages}>
+                  <ListItemIcon>
+                    <AiOutlineFolder className="menu-icons" />
+                  </ListItemIcon>
+                  <ListItemText primary="Pages" />
+                  {openPages ? <ExpandMore /> : <ChevronRightIcon />}
+                </ListItemButton>
               </div>
 
               <Collapse
@@ -232,108 +252,101 @@ function SideBarNew( { children } ) {
                     overflow: "hidden",
                   }}
                 >
-                  <List component="div" disablePadding  aria-labelledby="nested-list-subheader"
-                subheader={
-              <ListSubheader component="div" id="nested-list-subheader" sx={{bgcolor:"whitesmoke",fontSize:"12.5px",letterSpacing:"0.5px"}}>
-                LOGIN SCREENS:
-             </ListSubheader>
-                } >
-                    <ListItemButton sx={{ pl: 7 ,color:"black"}}>
+                  <List
+                    component="div"
+                    disablePadding
+                    aria-labelledby="nested-list-subheader"
+                    subheader={
+                      <ListSubheader
+                        component="div"
+                        id="nested-list-subheader"
+                        sx={{
+                          bgcolor: "whitesmoke",
+                          fontSize: "12.5px",
+                          letterSpacing: "0.5px",
+                        }}
+                      >
+                        LOGIN SCREENS:
+                      </ListSubheader>
+                    }
+                  >
+                    <ListItemButton sx={{ pl: 7, color: "black" }}>
                       <ListItemText primary="Login" />
                     </ListItemButton>
-                    <ListItemButton sx={{ pl: 7 ,color:"black"}}>
+                    <ListItemButton sx={{ pl: 7, color: "black" }}>
                       <ListItemText primary="Register" />
                     </ListItemButton>
-                    <ListItemButton sx={{ pl: 7 ,color:"black"}}>
+                    <ListItemButton sx={{ pl: 7, color: "black" }}>
                       <ListItemText primary="Forget Password" />
                     </ListItemButton>
                   </List>
 
-                  <List component="div" disablePadding  aria-labelledby="nested-list-subheader"
-                subheader={
-              <ListSubheader component="div" id="nested-list-subheader" sx={{bgcolor:"whitesmoke",fontSize:"12.5px",letterSpacing:"0.5px"}}>
-                OTHER PAGES:
-             </ListSubheader>
-                }>
-                    <ListItemButton sx={{ pl: 7,color:"black"}}>
+                  <List
+                    component="div"
+                    disablePadding
+                    aria-labelledby="nested-list-subheader"
+                    subheader={
+                      <ListSubheader
+                        component="div"
+                        id="nested-list-subheader"
+                        sx={{
+                          bgcolor: "whitesmoke",
+                          fontSize: "12.5px",
+                          letterSpacing: "0.5px",
+                        }}
+                      >
+                        OTHER PAGES:
+                      </ListSubheader>
+                    }
+                  >
+                    <ListItemButton sx={{ pl: 7, color: "black" }}>
                       <ListItemText primary="404 page" />
                     </ListItemButton>
-                    <ListItemButton sx={{ pl: 7,color:"black" }}>
+                    <ListItemButton sx={{ pl: 7, color: "black" }}>
                       <ListItemText primary="Blank page" />
                     </ListItemButton>
                   </List>
                 </List>
               </Collapse>
 
-           <div className="list-buttons">
-              <ListItemButton onClick={() => navigate("/charts")}>
-                <ListItemIcon>
-                  <VscGraphLine  className="menu-icons"/>
-                </ListItemIcon>
-                <ListItemText primary="Charts" />
-              </ListItemButton>
+              <div className="list-buttons">
+                <ListItemButton onClick={() => navigate("/charts")}>
+                  <ListItemIcon>
+                    <VscGraphLine className="menu-icons" />
+                  </ListItemIcon>
+                  <ListItemText primary="Charts" />
+                </ListItemButton>
               </div>
 
               <div className="list-buttons">
-              <ListItemButton onClick={() => navigate("/tables")}>
-                <ListItemIcon>
-                  <AiOutlineTable className="menu-icons"/>
-                </ListItemIcon>
-                <ListItemText primary="Tables" />
-              </ListItemButton>
+                <ListItemButton onClick={() => navigate("/tables")}>
+                  <ListItemIcon>
+                    <AiOutlineTable className="menu-icons" />
+                  </ListItemIcon>
+                  <ListItemText primary="Tables" />
+                </ListItemButton>
               </div>
             </List>
           </div>
         </div>
-        <main>{children}</main>
+        {/* <main>{children}</main> */}
       </div>
     </>
   );
 }
 
-function Navbar() {
-  return (
-    <div>
-      <h1>Navbar</h1>
-    </div>
-  );
-}
-
-function Dashboard() {
-  return (
-    <div className="dashboard">
-      <h1>Dashboard</h1>
-    </div>
-  );
-}
-
 function Components() {
-  return (
-    <div className="components">
-      <h1>Components</h1>
-    </div>
-  );
+  return <div className="components">{/* <h1>Components</h1> */}</div>;
 }
+
+
 function Utilities() {
-  return (
-    <div className="utilities">
-      <h1>Utilities</h1>
-    </div>
-  );
+  return <div className="utilities">{/* <h1>Utilities</h1> */}</div>;
 }
+
+
 function Pages() {
-  return (
-    <div className="pages">
-      <h1>Pages</h1>
-    </div>
-  );
-}
-function Charts() {
-  return (
-    <div className="charts">
-      <h1>Charts</h1>
-    </div>
-  );
+  return <div className="pages">{/* <h1>Pages</h1> */}</div>;
 }
 
 function Tables() {
@@ -344,11 +357,24 @@ function Tables() {
   );
 }
 
-// ilavenil
+// diagu
 
 
+function Nav(){
 
-
-
+  return(
+    <>
+    <div className='nav'>
+      
+    </div>
+    </>
+  );
+}
 
 export default App;
+
+
+
+
+
+
