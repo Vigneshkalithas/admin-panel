@@ -119,67 +119,67 @@ export function Buttons() {
             <code>.text-white-50</code> helper class on the icons for additional styling,
             but it is not required.</p>
         <a href="#" class="btn btn-primary btn-icon-split">
-            <span class="icon text-white-50">
+            <span class="icon text-white p-2">
                 <i class="fas fa-flag"></i>
             </span>
-            <span class="text">Split Button Primary</span>
+            <span class="text-white p-2">Split Button Primary</span>
         </a>
         <div class="my-2"></div>
         <a href="#" class="btn btn-success btn-icon-split">
-            <span class="icon text-white-50">
+            <span class="icon text-white p-2">
                 <i class="fas fa-check"></i>
             </span>
-            <span class="text">Split Button Success</span>
+            <span class="text-white p-2">Split Button Success</span>
         </a>
         <div class="my-2"></div>
-        <a href="#" class="btn btn-info btn-icon-split">
-            <span class="icon text-white-50">
-                <i class="fas fa-info-circle"></i>
+        <a href="#" class="btn btn-info btn-icon-split ">
+            <span class="icon text-white p-2">
+                <i class="fas fa-info-circle "></i>
             </span>
-            <span class="text">Split Button Info</span>
+            <span class="text-white p-2">Split Button Info</span>
         </a>
         <div class="my-2"></div>
         <a href="#" class="btn btn-warning btn-icon-split">
-            <span class="icon text-white-50">
-                <i class="fas fa-exclamation-triangle"></i>
+            <span class="icon text-white p-2">
+                <i class="fas fa-exclamation-triangle "></i>
             </span>
-            <span class="text">Split Button Warning</span>
+            <span class="text-white p-2">Split Button Warning</span>
         </a>
         <div class="my-2"></div>
         <a href="#" class="btn btn-danger btn-icon-split">
-            <span class="icon text-white-50">
+            <span class="icon text-white p-2">
                 <i class="fas fa-trash"></i>
             </span>
-            <span class="text">Split Button Danger</span>
+            <span class="text-white p-2">Split Button Danger</span>
         </a>
         <div class="my-2"></div>
         <a href="#" class="btn btn-secondary btn-icon-split">
-            <span class="icon text-white-50">
+            <span class="icon text-white p-2">
                 <i class="fas fa-arrow-right"></i>
             </span>
-            <span class="text">Split Button Secondary</span>
+            <span class="text-white p-2">Split Button Secondary</span>
         </a>
         <div class="my-2"></div>
         <a href="#" class="btn btn-light btn-icon-split">
-            <span class="icon text-gray-600">
+            <span class="icon text-gray-600 p-2">
                 <i class="fas fa-arrow-right"></i>
             </span>
-            <span class="text">Split Button Light</span>
+            <span class="text-dark p-2">Split Button Light</span>
         </a>
         <div class="mb-4"></div>
         <p class="also">Also works with small and large button classes!</p>
         <a href="#" class="btn btn-primary btn-icon-split btn-sm">
-            <span class="icon text-white-50">
+            <span class="icon text-white p-2">
                 <i class="fas fa-flag"></i>
             </span>
-            <span class="text">Split Button Small</span>
+            <span class="text-white p-2">Split Button Small</span>
         </a>
         <div class="my-2"></div>
         <a href="#" class="btn btn-primary btn-icon-split btn-lg">
-            <span class="icon text-white-50">
+            <span class="icon text-white p-2">
                 <i class="fas fa-flag"></i>
             </span>
-            <span class="text">Split Button Large</span>
+            <span class="text-white p-2">Split Button Large</span>
         </a>
     </div>
 </div>
@@ -200,84 +200,7 @@ export function Buttons() {
 
 
 
- {/*<div className="col-lg-6">
-        <div className="card mt-3">
-          <div className="card-header font-weight-bold text-primary">
-            <h6>Circle Buttons</h6>
-          </div>
-
-          <div className="card-body">
-
-
-            <p>Use Font Awesome Icons (included with this theme package) along with the circle
-              buttons as shown in the examples below!</p>
-
-
-            <div className="mb-2">
-              <code>.btn-circle</code>
-            </div>
-            <a href="#" className="btn btn-primary btn-circle">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" className="btn btn-success btn-circle">
-              <i className="fas fa-check"></i>
-            </a>
-            <a href="#" className="btn btn-info btn-circle">
-              <i class="fas fa-info-circle"></i>
-            </a>
-            <a href="#" className="btn btn-warning btn-circle">
-              <i className="fas fa-exclamation-triangle"></i>
-            </a>
-            <a href="#" className="btn btn-danger btn-circle">
-              <i className="fas fa-trash"></i>
-            </a>
-
-
-
-            <div className="mt-4 mb-2">
-              <code>.btn-circle .btn-sm</code>
-            </div>
-            <a href="#" className="btn btn-primary btn-circle btn-sm">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" className="btn btn-success btn-circle btn-sm">
-              <i className="fas fa-check"></i>
-            </a>
-            <a href="#" className="btn btn-info btn-circle btn-sm">
-              <i className="fas fa-info-circle"></i>
-            </a>
-            <a href="#" className="btn btn-warning btn-circle btn-sm">
-              <i className="fas fa-exclamation-triangle"></i>
-            </a>
-            <a href="#" className="btn btn-danger btn-circle btn-sm">
-              <i className="fas fa-trash"></i>
-            </a>
-
-
-
-            <div className="mt-4 mb-2">
-              <code>.btn-circle .btn-lg</code>
-            </div>
-            <a href="#" className="btn btn-primary btn-circle btn-lg">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="#" className="btn btn-success btn-circle btn-lg">
-              <i className="fas fa-check"></i>
-            </a>
-            <a href="#" className="btn btn-info btn-circle btn-lg">
-              <i className="fas fa-info-circle"></i>
-            </a>
-            <a href="#" className="btn btn-warning btn-circle btn-lg">
-              <i className="fas fa-exclamation-triangle"></i>
-            </a>
-            <a href="#" className="btn btn-danger btn-circle btn-lg">
-              <i className="fas fa-trash"></i>
-            </a>
-          </div>
-
-
-        </div>
-      </div> */}
+ 
     </div>
 
 

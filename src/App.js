@@ -6,6 +6,7 @@ import {
   Route,
   Link,
   Routes,
+  Switch,
   // Navigate,
   useNavigate,
 } from "react-router-dom";
@@ -44,6 +45,13 @@ import PrimarySearchAppBar from "./PrimarySearchAppBar";
 import { Dashboard } from "./Dashboard";
 import { Charts } from "./Charts";
 import { Buttons } from "./Buttons";
+import { Incards } from "./Incards";
+// import { LoginPage, } from "./Pages";
+import { BlankPage,ErrorPage, ForgetPassword,LoginPage, Pages, Register} from "./Pages";
+import { Layout } from "./Layout";
+import { Utilities , Border} from "./Utilities";
+
+
 
 
 // end
@@ -52,33 +60,35 @@ import { Buttons } from "./Buttons";
 function App() {
   return (
     <div className="App">
-      <div className="App-child">
-        <div><SideBarNew/></div>
-
-        <div className="top-nav">
-          <div>
-          <PrimarySearchAppBar/>
-          </div>
-          <div>
+     
 <Routes>
-<Route path="/" element={<Dashboard />} />
-<Route path="/dashboard" element={<Dashboard />} />
-<Route path="/components" element={<Components />} />
-<Route path='/buttons' element={<Buttons />} />
-<Route path="/utilities" element={<Utilities />} />
-<Route path="/pages" element={<Pages />} />
-<Route path="/charts" element={<Charts />} />
-<Route path="/tables" element={<Tables />} />
+
+<Route path="/" element={<Layout/>}>  
+<Route path="dashboard" element={<Dashboard />} />
+<Route path="components" element={<Components />} />
+<Route path="utilities" element={<Utilities />} />
+<Route path="pages" element={<Pages />} />
+<Route path="charts" element={<Charts />} />
+<Route path="tables" element={<Tables />} />
+<Route path='buttons' element={<Buttons />} />
+<Route path='incards' element={<Incards/>} />
+<Route path="/border" element={<Border className="head-forget"/>}> </Route>
+<Route path="blankpages" element={<BlankPage />} />
+<Route path="errorpages" element={<ErrorPage />} />
+</Route>
+
+<Route path="/forgetpassword" element={<ForgetPassword className="head-forget"/>}> </Route>
+<Route path="/login" element={<LoginPage className="head-forget"/>}> </Route>
+<Route path="/register" element={<Register className="head-forget"/>}> </Route>
+
+
 </Routes>
-          </div>
-        </div>
-      </div>
     </div>
         
   );
 }
 
-function SideBarNew() {
+export function SideBarNew() {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [openComponent, setOpenComponent] = useState(false);
@@ -112,7 +122,7 @@ function SideBarNew() {
           <div className="menus">
             <List activeClassName="active">
               <div className="list-buttons">
-                <ListItemButton onClick={() => navigate("/dashboard")}>
+                <ListItemButton onClick={() => navigate("dashboard")}>
                   <ListItemIcon>
                     <AiOutlineDashboard className="menu-icons" />
                   </ListItemIcon>
@@ -160,10 +170,10 @@ function SideBarNew() {
                     </ListSubheader>
                   }
                 >
-                  <ListItemButton sx={{ pl: 7, color: "black" }} onClick={() => navigate("/buttons")}>
+                  <ListItemButton sx={{ pl: 7, color: "black" }} onClick={() => navigate("buttons")}>
                     <ListItemText primary="Buttons" />
                   </ListItemButton>
-                  <ListItemButton sx={{ pl: 7, color: "black" }}>
+                  <ListItemButton sx={{ pl: 7, color: "black" }} onClick={() => navigate("incards")}>
                     <ListItemText primary="Cards" />
                   </ListItemButton>
                 </List>
@@ -210,16 +220,16 @@ function SideBarNew() {
                     </ListSubheader>
                   }
                 >
-                  <ListItemButton sx={{ pl: 7, color: "black" }}>
+                  <ListItemButton sx={{ pl: 7, color: "black" }}  onClick={() => navigate("/color")}>
                     <ListItemText primary="Colors" />
                   </ListItemButton>
-                  <ListItemButton sx={{ pl: 7, color: "black" }}>
+                  <ListItemButton sx={{ pl: 7, color: "black" }}  onClick={() => navigate("/border")}>
                     <ListItemText primary="Borders" />
                   </ListItemButton>
-                  <ListItemButton sx={{ pl: 7, color: "black" }}>
+                  <ListItemButton sx={{ pl: 7, color: "black" }}  onClick={() => navigate("/animation")}>
                     <ListItemText primary="Animations" />
                   </ListItemButton>
-                  <ListItemButton sx={{ pl: 7, color: "black" }}>
+                  <ListItemButton sx={{ pl: 7, color: "black" }}  onClick={() => navigate("/other")}>
                     <ListItemText primary="Others" />
                   </ListItemButton>
                 </List>
@@ -270,13 +280,13 @@ function SideBarNew() {
                       </ListSubheader>
                     }
                   >
-                    <ListItemButton sx={{ pl: 7, color: "black" }}>
+                    <ListItemButton sx={{ pl: 7, color: "black" }} onClick={() => navigate("/login")}>
                       <ListItemText primary="Login" />
                     </ListItemButton>
-                    <ListItemButton sx={{ pl: 7, color: "black" }}>
+                    <ListItemButton sx={{ pl: 7, color: "black" }} onClick={() => navigate("/register")}>
                       <ListItemText primary="Register" />
                     </ListItemButton>
-                    <ListItemButton sx={{ pl: 7, color: "black" }}>
+                    <ListItemButton sx={{ pl: 7, color: "black" }} onClick={() => navigate("/forgetpassword")}>
                       <ListItemText primary="Forget Password" />
                     </ListItemButton>
                   </List>
@@ -299,10 +309,10 @@ function SideBarNew() {
                       </ListSubheader>
                     }
                   >
-                    <ListItemButton sx={{ pl: 7, color: "black" }}>
+                    <ListItemButton sx={{ pl: 7, color: "black" }} onClick={() => navigate("/errorpages")}>
                       <ListItemText primary="404 page" />
                     </ListItemButton>
-                    <ListItemButton sx={{ pl: 7, color: "black" }}>
+                    <ListItemButton sx={{ pl: 7, color: "black" }} onClick={() => navigate("/blankpages")}>
                       <ListItemText primary="Blank page" />
                     </ListItemButton>
                   </List>
@@ -335,19 +345,33 @@ function SideBarNew() {
   );
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function Components() {
   return <div className="components">{/* <h1>Components</h1> */}</div>;
 }
 
-
-function Utilities() {
-  return <div className="utilities">{/* <h1>Utilities</h1> */}</div>;
-}
-
-
-function Pages() {
-  return <div className="pages">{/* <h1>Pages</h1> */}</div>;
-}
 
 function Tables() {
   return (

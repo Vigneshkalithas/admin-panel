@@ -1,68 +1,20 @@
 import React from "react";
+import { FourCards } from "./FourCards";
 
 export function Dashboard() {
   return (
     <div className="container">
       <div className="d-sm-flex align-items-center justify-content-between mb-4">
-              <h1 className="h3 mb-4 text-gray-800 dashboard">Dashboard</h1>
-              <a href="#" className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-          </div>
-      
-      
-      <div className="row">
-        <div className="col-lg-3">
-          <div className="card border-left-primary">
-            <div className="card-body">
-              <div className="card-title monthly">EARNINGS (MONTHLY)</div>
-              <div className="cardicon">
-                <div className="card-text">$40,000</div>
-                <div>
-                  <i class="fa fa-calendar-o dashicon"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-3">
-          <div className="card border-left-success">
-            <div className="card-body">
-              <div className="card-title annual">EARNINGS (ANNUAL)</div>
-              <div className="cardicon">
-                <div className="card-text">$215,000</div>
-                <div>
-                  <i class="fa fa-usd dashicon"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-3">
-          <div className="card border-left-info">
-            <div className="card-body">
-              <div className="card-title task">TASKS</div>
-              <div className="cardicon">
-                <div className="card-text">50%</div>
-                <div>
-                  <i class="fa fa-list-alt dashicon"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-3">
-          <div className="card border-left-warning">
-            <div className="card-body">
-              <div className="card-title pending">PENDING REQUESTS</div>
-              <div className="cardicon">
-                <div className="card-text">18</div>
-                <div>
-                  <i class="fa fa-comments dashicon"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <h1 className="h3 mb-4 text-gray-800 dashboard">Dashboard</h1>
+        <a
+          href="#"
+          className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+        >
+          <i class="fas fa-download fa-sm text-white-50"></i> Generate Report
+        </a>
       </div>
+
+      <FourCards />
       <div className="row">
         <div className="col-lg-6">
           <div className="row m-3">
@@ -77,7 +29,7 @@ export function Dashboard() {
             <div className=" col-lg-6 ">
               <div className="card text-white bg-secondary mb-3">
                 <div className="card-body">
-                  <h6 className="card-title">secondary</h6>
+                  <h6 className="card-title">Secondary</h6>
                   <p className="text">#858796</p>
                 </div>
               </div>
@@ -85,7 +37,7 @@ export function Dashboard() {
             <div className=" col-lg-6 ">
               <div className="card text-white bg-success mb-3">
                 <div className="card-body">
-                  <h6 className="card-title">success</h6>
+                  <h6 className="card-title">Success</h6>
                   <p className="text">#1cc88a</p>
                 </div>
               </div>
@@ -101,7 +53,7 @@ export function Dashboard() {
             <div className=" col-lg-6 ">
               <div className="card text-white bg-warning  mb-3">
                 <div className="card-body">
-                  <h6 className="card-title">warning </h6>
+                  <h6 className="card-title">Warning </h6>
                   <p className="text">#f6c23e</p>
                 </div>
               </div>
@@ -151,11 +103,14 @@ export function Dashboard() {
             </div>
           </div>
           <div className="card mt-3">
-          <div className="card-header font-weight-bold text-primary">
+            <div className="card-header font-weight-bold text-primary">
               Illustrations
             </div>
             <div className="card-body">
-              <img className="dashboardimg img-responsive" src="https://squarera.com/wp-content/uploads/2020/12/undraw_posting_photo_v65l-1024x599.png"  />
+              <img
+                className="dashboardimg img-responsive"
+                src="https://squarera.com/wp-content/uploads/2020/12/undraw_posting_photo_v65l-1024x599.png"
+              />
               <p>
                 Add some quality, svg illustrations to your project courtesy of
                 unDraw, a constantly updated collection of beautiful svg images
