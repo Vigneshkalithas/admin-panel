@@ -49,7 +49,8 @@ import { Incards } from "./Incards";
 // import { LoginPage, } from "./Pages";
 import { BlankPage,ErrorPage, ForgetPassword,LoginPage, Pages, Register} from "./Pages";
 import { Layout } from "./Layout";
-import { Utilities , Border} from "./Utilities";
+import { Utilities , Border,Animation,Others, Colors} from "./Utilities";
+import { Tables } from "./Tables";
 
 
 
@@ -73,6 +74,9 @@ function App() {
 <Route path='buttons' element={<Buttons />} />
 <Route path='incards' element={<Incards/>} />
 <Route path="/border" element={<Border className="head-forget"/>}> </Route>
+<Route path="/animation" element={<Animation className="head-forget"/>}> </Route>
+<Route path="/others" element={<Others className="head-forget"/>}> </Route>
+<Route path="/colors" element={<Colors className="head-forget"/>}> </Route>
 <Route path="blankpages" element={<BlankPage />} />
 <Route path="errorpages" element={<ErrorPage />} />
 </Route>
@@ -220,16 +224,16 @@ export function SideBarNew() {
                     </ListSubheader>
                   }
                 >
-                  <ListItemButton sx={{ pl: 7, color: "black" }}  onClick={() => navigate("/color")}>
+                  <ListItemButton sx={{ pl: 7, color: "black" }}  onClick={() => navigate("colors")}>
                     <ListItemText primary="Colors" />
                   </ListItemButton>
-                  <ListItemButton sx={{ pl: 7, color: "black" }}  onClick={() => navigate("/border")}>
+                  <ListItemButton sx={{ pl: 7, color: "black" }}  onClick={() => navigate("border")}>
                     <ListItemText primary="Borders" />
                   </ListItemButton>
-                  <ListItemButton sx={{ pl: 7, color: "black" }}  onClick={() => navigate("/animation")}>
+                  <ListItemButton sx={{ pl: 7, color: "black" }}  onClick={() => navigate("animation")}>
                     <ListItemText primary="Animations" />
                   </ListItemButton>
-                  <ListItemButton sx={{ pl: 7, color: "black" }}  onClick={() => navigate("/other")}>
+                  <ListItemButton sx={{ pl: 7, color: "black" }}  onClick={() => navigate("others")}>
                     <ListItemText primary="Others" />
                   </ListItemButton>
                 </List>
@@ -309,10 +313,10 @@ export function SideBarNew() {
                       </ListSubheader>
                     }
                   >
-                    <ListItemButton sx={{ pl: 7, color: "black" }} onClick={() => navigate("/errorpages")}>
+                    <ListItemButton sx={{ pl: 7, color: "black" }} onClick={() => navigate("errorpages")}>
                       <ListItemText primary="404 page" />
                     </ListItemButton>
-                    <ListItemButton sx={{ pl: 7, color: "black" }} onClick={() => navigate("/blankpages")}>
+                    <ListItemButton sx={{ pl: 7, color: "black" }} onClick={() => navigate("blankpages")}>
                       <ListItemText primary="Blank page" />
                     </ListItemButton>
                   </List>
@@ -320,7 +324,7 @@ export function SideBarNew() {
               </Collapse>
 
               <div className="list-buttons">
-                <ListItemButton onClick={() => navigate("/charts")}>
+                <ListItemButton onClick={() => navigate("charts")}>
                   <ListItemIcon>
                     <VscGraphLine className="menu-icons" />
                   </ListItemIcon>
@@ -329,7 +333,7 @@ export function SideBarNew() {
               </div>
 
               <div className="list-buttons">
-                <ListItemButton onClick={() => navigate("/tables")}>
+                <ListItemButton onClick={() => navigate("tables")}>
                   <ListItemIcon>
                     <AiOutlineTable className="menu-icons" />
                   </ListItemIcon>
@@ -372,14 +376,6 @@ function Components() {
   return <div className="components">{/* <h1>Components</h1> */}</div>;
 }
 
-
-function Tables() {
-  return (
-    <div className="tables">
-      <h1>Tables</h1>
-    </div>
-  );
-}
 
 // diagu
 
